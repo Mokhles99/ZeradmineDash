@@ -1,8 +1,20 @@
+# Utiliser une image de base Node.js
 FROM node:20.15.1-slim
-RUN mkdir -p /opt/app
+
+# Créer et définir le répertoire de travail
 WORKDIR /opt/app
+
+# Copier les fichiers package.json et package-lock.json
 COPY package.json package-lock.json ./
+
+# Installer les dépendances
 RUN npm install --force
+
+# Copier le reste des fichiers de l'application
 COPY . .
+
+# Exposer le port que l'application utilisera
 EXPOSE 8082
-CMD ["npm", "start"]
+
+# Commande pour démarrer l'application
+CMD ["nodemon", "server.js"]

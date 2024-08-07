@@ -3,7 +3,7 @@ import { formulaireConstants } from './constantes';
 // Create Formulaire
 export const createFormulaire = (formulaireData) => (dispatch) => {
   dispatch({ type: formulaireConstants.CREATE_FORMULAIRE_REQUEST });
-  fetch('http://5.196.6.177/formulaire/new', {
+  fetch('https://admin.szq.tn/formulaire/new', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formulaireData),
@@ -22,7 +22,7 @@ export const createFormulaire = (formulaireData) => (dispatch) => {
 // Get all Formulaires
 export const getAllFormulaires = () => (dispatch) => {
     dispatch({ type: formulaireConstants.GET_ALL_FORMULAIRES_REQUEST });
-    fetch('http://5.196.6.177/formulaire/forms')
+    fetch('https://admin.szq.tn/formulaire/forms')
         .then((response) => response.json())
         .then((data) => {
             dispatch({
@@ -41,7 +41,7 @@ export const getAllFormulaires = () => (dispatch) => {
 export const getFormulaire = (id) => (dispatch) => {
   dispatch({ type: formulaireConstants.GET_FORMULAIRE_REQUEST });
 
-  fetch(`http://5.196.6.177/formulaire/formulaires/${id}`, {
+  fetch(`https://admin.szq.tn/formulaire/formulaires/${id}`, {
       method: 'GET',
   })
   .then((response) => {
@@ -69,7 +69,7 @@ export const getFormulaire = (id) => (dispatch) => {
 export const updateFormulaire = (id, formulaireData) => (dispatch) => {
   dispatch({ type: formulaireConstants.UPDATE_FORMULAIRE_REQUEST });
 
-  fetch(`http://5.196.6.177/formulaire/forms/${id}`, {
+  fetch(`https://admin.szq.tn/formulaire/forms/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formulaireData),
@@ -95,7 +95,7 @@ export const updateFormulaire = (id, formulaireData) => (dispatch) => {
 export const deleteFormulaire = (id) => (dispatch) => {
   dispatch({ type: formulaireConstants.DELETE_FORMULAIRE_REQUEST });
 
-  fetch(`http://5.196.6.177/formulaire/forms/${id}`, {
+  fetch(`https://admin.szq.tn/formulaire/forms/${id}`, {
     method: 'DELETE',
   })
     .then((response) => {
