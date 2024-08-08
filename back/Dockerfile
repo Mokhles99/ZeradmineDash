@@ -17,4 +17,6 @@ COPY . .
 EXPOSE 8082
 
 # Commande pour démarrer l'application
-CMD ["nodemon", "server.js"]
+
+# Commande pour démarrer l'application
+CMD ["node", "server.js"]
