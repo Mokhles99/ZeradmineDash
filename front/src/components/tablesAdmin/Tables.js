@@ -361,12 +361,12 @@ const Tables = () => {
                     <IconButton color="primary" aria-label="view" onClick={() => handleCartViewOpen(params.row.cartId)}>
                         <VisibilityIcon />
                     </IconButton>
-                    <IconButton color="info" aria-label="edit" onClick={() => handleEditClick(params.id)}>
+                    {/* <IconButton color="info" aria-label="edit" onClick={() => handleEditClick(params.id)}>
                         <EditIcon />
                     </IconButton>
                     <IconButton color="error" onClick={() => handleDeleteClick(params.id)}>
                         <DeleteIcon />
-                    </IconButton>
+                    </IconButton> */}
                 </strong>
             ),
         },
