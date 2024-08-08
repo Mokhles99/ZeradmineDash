@@ -14,5 +14,5 @@ services:
       context: ./front
       dockerfile: Dockerfile
     ports:
-      - "5173:5173"
+      - "3000:3000"
     container_name: zeradminedash_frontend

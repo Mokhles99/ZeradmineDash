@@ -20,7 +20,7 @@ RUN npm run build
 RUN npm install -g serve
 
 # Exposer le port que l'application utilisera
-EXPOSE 5173
+EXPOSE 3000
 
 # Commande pour démarrer l'application
-CMD ["serve", "-s", "build"]
+CMD ["serve", "-s", "build", "-l", "3000"]
