@@ -7,8 +7,6 @@ services:
       - "8082:8082"
     environment:
       - MONGODB_URI=mongodb+srv://Mokles:123456789Mokles@cluster0.ausxxs0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-    volumes:
-      - ./back:/opt/app
     container_name: zeradminedash_backend
 
   frontend:
@@ -17,6 +15,4 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5173:5173"
-    volumes:
-      - ./front:/app
     container_name: zeradminedash_frontend
