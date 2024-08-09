@@ -24,7 +24,7 @@ export const addToCarttwo = (cartId, productId, quantity = 1) => async (dispatch
     }
 
     try {
-        const response = await fetch(`https://5.196.6.177:8082/carttwo/${cartId}/add`, {
+        const response = await fetch(`https://admin.szq.tn/carttwo/${cartId}/add`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ productId, quantity })
@@ -48,7 +48,7 @@ export const addToCarttwo = (cartId, productId, quantity = 1) => async (dispatch
 export const getCarttwo = (cartId) => async (dispatch) => {
     dispatch({ type: carttwoConstants.GET_CARTTWO_REQUEST });
     try {
-        const response = await fetch(`https://5.196.6.177:8082/carttwo/${cartId}/getCarttwo`, {
+        const response = await fetch(`https://admin.szq.tn/carttwo/${cartId}/getCarttwo`, {
             method: 'GET'
         });
         const data = await response.json();
@@ -63,7 +63,7 @@ export const updateCartWithUserInfo = (cartId, userInfo) => async (dispatch) => 
     dispatch({ type: carttwoConstants.UPDATE_CARTTWO_REQUEST });
 
     try {
-        const response = await fetch(`https://5.196.6.177:8082/carttwo/${cartId}/userinfo`, {
+        const response = await fetch(`https://admin.szq.tn/carttwo/${cartId}/userinfo`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userInfo })
@@ -91,7 +91,7 @@ export const updateCartWithUserInfo = (cartId, userInfo) => async (dispatch) => 
 export const removeItemFromCart = (cartId, itemId) => async (dispatch) => {
     dispatch({ type: carttwoConstants.REMOVE_ITEM_FROM_CART_REQUEST });
     try {
-        const response = await fetch(`https://5.196.6.177:8082/carttwo/${cartId}/items/${itemId}`, {
+        const response = await fetch(`https://admin.szq.tn/carttwo/${cartId}/items/${itemId}`, {
             method: 'DELETE'
         });
         if (!response.ok) {
@@ -119,7 +119,7 @@ export const updateItemQuantity = (cartId, itemId, quantity) => async (dispatch)
     }
 
     try {
-        const response = await fetch(`https://5.196.6.177:8082/carttwo/${cartId}/items/${itemId}`, {
+        const response = await fetch(`https://admin.szq.tn/carttwo/${cartId}/items/${itemId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ quantity })
@@ -151,7 +151,7 @@ export const clearCart = () => {
 export const getAllCarts = () => async (dispatch) => {
     dispatch({ type: carttwoConstants.GET_ALL_CARTS_REQUEST });
     try {
-        const response = await fetch('https://5.196.6.177:8082/carttwo/all');
+        const response = await fetch('https://admin.szq.tn/carttwo/all');
         const data = await response.json();
         if (response.ok) {
             dispatch({ type: carttwoConstants.GET_ALL_CARTS_SUCCESS, payload: data });
@@ -166,7 +166,7 @@ export const getAllCarts = () => async (dispatch) => {
 export const countCarts = () => async (dispatch) => {
     dispatch({ type: carttwoConstants.COUNT_CARTS_REQUEST });
     try {
-        const response = await fetch('https://5.196.6.177:8082/carttwo/count');
+        const response = await fetch('https://admin.szq.tn/carttwo/count');
         const data = await response.json();
         if (response.ok) {
             dispatch({ type: carttwoConstants.COUNT_CARTS_SUCCESS, payload: data.count });
@@ -182,7 +182,7 @@ export const countCarts = () => async (dispatch) => {
 //     console.log('Sending to server:', { productId, quantity });
 //     dispatch({ type: carttwoConstants.ADD_TO_CARTTWO_REQUEST });
 //     try {
-//         const response = await fetch('https://5.196.6.177:8082/carttwo/cart/add', {
+//         const response = await fetch('https://admin.szq.tn/carttwo/cart/add', {
 //             method: 'POST',
 //             headers: { 'Content-Type': 'application/json' },
 //             body: JSON.stringify({ productId, quantity })
@@ -197,7 +197,7 @@ export const countCarts = () => async (dispatch) => {
 // export const getCarttwo = () => async (dispatch) => {
 //     dispatch({ type: carttwoConstants.GET_CARTTWO_REQUEST });
 //     try {
-//         const response = await fetch('https://5.196.6.177:8082/carttwo/getCarttwo');
+//         const response = await fetch('https://admin.szq.tn/carttwo/getCarttwo');
 //         const data = await response.json();
 //         dispatch({ type: carttwoConstants.GET_CARTTWO_SUCCESS, payload: data });
 //     } catch (error) {
@@ -208,7 +208,7 @@ export const countCarts = () => async (dispatch) => {
 //     console.log('Sending to server:', { productId, quantity });
 //     dispatch({ type: carttwoConstants.ADD_TO_CARTTWO_REQUEST });
 //     try {
-//         const response = await fetch('https://5.196.6.177:8082/carttwo/cart/add', {
+//         const response = await fetch('https://admin.szq.tn/carttwo/cart/add', {
 //             method: 'POST',
 //             headers: { 'Content-Type': 'application/json' },
 //             body: JSON.stringify({ productId, quantity })

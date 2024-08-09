@@ -4,7 +4,7 @@ import { userConstants } from './constantes';
 export const fetchAllUsers = () => async (dispatch) => {
     dispatch({ type: userConstants.FETCH_USERS_REQUEST });
     try {
-        const response = await axios.get('https://5.196.6.177:8082/api/users');
+        const response = await axios.get('https://admin.szq.tn/api/users');
         console.log("Fetched Users:", response.data);  // Log fetched users to the console
         dispatch({ type: userConstants.FETCH_USERS_SUCCESS, payload: response.data });
     } catch (error) {
@@ -17,7 +17,7 @@ export const fetchAllUsers = () => async (dispatch) => {
 export const changeUserRole = (userId, roleId) => async (dispatch) => {
     dispatch({ type: userConstants.CHANGE_USER_ROLE_REQUEST });
     try {
-        const response = await axios.post('https://5.196.6.177:8082/api/user/change-role-by-id', { userId, roleId });
+        const response = await axios.post('https://admin.szq.tn/api/user/change-role-by-id', { userId, roleId });
         dispatch({ type: userConstants.CHANGE_USER_ROLE_SUCCESS, payload: response.data });
     } catch (error) {
         dispatch({ type: userConstants.CHANGE_USER_ROLE_FAILURE, payload: error.response.data.message });
