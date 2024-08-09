@@ -80,8 +80,7 @@ app.use('/api/formulaire',formulaireRoutes)
 app.use('/api/cart',cartRoutes)
 app.use('/api/carttwo',carttwoRoutes)
 
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
 
 
 // routes
