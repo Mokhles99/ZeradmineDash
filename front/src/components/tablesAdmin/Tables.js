@@ -98,7 +98,7 @@ const Tables = () => {
         }
 
         try {
-            const response = await fetch('https://admin.szq.tn/product/create', {
+            const response = await fetch('https://admin.szq.tn/api/product/create', {
                 method: 'POST',
                 body: formData
             });

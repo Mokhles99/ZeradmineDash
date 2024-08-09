@@ -20,7 +20,7 @@ const bodyParser = require('body-parser')
 ///probleme cors
 
 var corsOptions = {
-  origin: ['http://localhost:8081','https://admin.szq.tn','http://localhost:8080','http://5.196.6.177:3000','https://5.196.6.177:3000','http://localhost:3000', 'http://localhost:3001','http://127.0.0.1:5173','http://127.0.0.1:5174']
+  origin: ['http://localhost:8081','https://admin.szq.tn/api','http://localhost:8080','http://5.196.6.177:3000','https://5.196.6.177:3000','http://localhost:3000', 'http://localhost:3001','http://127.0.0.1:5173','http://127.0.0.1:5174']
 };
 
 cloudinary.config({
@@ -75,10 +75,10 @@ app.get("/", (req, res) => {
 });
 
 
-app.use('/product',productRoutes)
-app.use('/formulaire',formulaireRoutes)
-app.use('/cart',cartRoutes)
-app.use('/carttwo',carttwoRoutes)
+app.use('/api/product',productRoutes)
+app.use('/api/formulaire',formulaireRoutes)
+app.use('/api/cart',cartRoutes)
+app.use('/api/carttwo',carttwoRoutes)
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
