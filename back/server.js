@@ -17,6 +17,8 @@ app.use(express.json());
 app.use(cors(corsOptions));
 const bodyParser = require('body-parser')
 
+///probleme cors
+
 var corsOptions = {
   origin: ['http://localhost:8081','https://admin.szq.tn','http://localhost:8080','http://5.196.6.177:3000','https://5.196.6.177:3000','http://localhost:3000', 'http://localhost:3001','http://127.0.0.1:5173','http://127.0.0.1:5174']
 };
