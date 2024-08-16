@@ -64,8 +64,8 @@ const RoleSelector = ({ userId, currentRole }) => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={() => handleRoleChange("660c339661e486d580c76b7e")} selected={currentRole === 'admin'}>Admin</MenuItem>
-                <MenuItem onClick={() => handleRoleChange("660c339661e486d580c76b7c")} selected={currentRole === 'user'}>User</MenuItem>
+                <MenuItem onClick={() => handleRoleChange("66867e17922fdb5f0b270cc8")} selected={currentRole === 'admin'}>Admin</MenuItem>
+                <MenuItem onClick={() => handleRoleChange("66867e17922fdb5f0b270cc6")} selected={currentRole === 'user'}>User</MenuItem>
             </Menu>
         </div>
     );

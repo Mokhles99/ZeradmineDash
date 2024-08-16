@@ -13,22 +13,27 @@
   margin-top: 80px;
  
 }
+.table-cell {
+  font-size: 20px; /* Adjust the font size as needed */
+  font-weight: 500; /* You can also adjust the font weight if needed */
+}
 
 .navDashboard {
   position: sticky;
   top: 0;
   bottom: 0;
-  height: 100vh;
+  height: 100%;
   left: 0;
-  width: 400px;
-  background: #fff;
+  width: 81px;
+  z-index: 999 !important;
   overflow: hidden;
   transition: 1s;
   margin-top: 70px fixed;
+  background-color: #474747;
 }
 
 .navDashboard:hover {
-  width: 500px;
+  width: 180px;
   transition: 1s;
 }
 
@@ -53,20 +58,24 @@
   color: rgb(85, 83, 83);
   display: table;
   padding: 10px;
+  text-align: center;
 }
 
 .nav-item {
   position: relative;
   top: 12px;
   margin-left: 10px;
+  color: #a97a45;
 }
 
 .nav-link:hover {
-  background: #eee;
+  background: #a97a45;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .nav-link:hover i {
-  color: #34af6d;
+  color: #a97a45;
   transition: 0.5s;
 }
 
@@ -196,17 +205,48 @@
   margin-right: 30px;
 }
 
-.containerDash {
+/* .containerDash {
   display: flex;
-  /* background: rgb(226, 226, 226); */
+ 
+ background-image: url("../../../assets/backgrounddashboard.png");
+}
+ */
+
+ .containerDash {
+  display: grid;
+  grid-template-columns: 180px auto;
+  background-image: url("../../../assets/backgrounddashboard.png");
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  position: relative; /* Set relative positioning for overlay */
+}
+
+.containerDash::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 58%);
+
+  /* Apply gray-black mask */
+  z-index: 1; /* Ensure the overlay is on top */
+}
+
+.containerDash > * {
+  position: relative; /* Ensure the content is above the overlay */
+  z-index: 2;
 }
 
 /* Main Section */
 .main {
   position: relative;
   padding: 20px;
-  width: 85%;
-  margin-top: 100px;
+  width: 100%;
+  margin-top: 60px;
+  margin-left: -81px ;
 }
 
 .main-top {
@@ -329,9 +369,13 @@ table thead tr {
 }
 
 .accordion-body li:hover {
-  color: #4ad489;
+  color: #a97a45;
 }
 
 .link-hover:hover {
-  color: #34af6d;
+  color: #fff;
+}
+
+.link-hover {
+  color: #a97a45;
 }
