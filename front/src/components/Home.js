@@ -31,23 +31,73 @@
 // };
 
 // export default Home;
+// import React, { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import imagehero from "../assets/PLAN122.png";
+// import CircularProgress from '@mui/material/CircularProgress';
+// import Box from '@mui/material/Box';
+// import Typography from '@mui/material/Typography';
+
+// const Home = () => {
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       navigate("/admin");
+//     }, 3000); // Redirection après 6 secondes
+
+//     return () => clearTimeout(timer);
+//   }, [navigate]);
+
+//   return (
+//     <Box
+//       sx={{
+//         display: 'flex',
+//         flexDirection: 'column',
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         height: '100vh',
+//         textAlign: 'center',
+//         backgroundColor: '#f0f0f0',
+//       }}
+//     >
+//       <img
+//         src={imagehero}
+//         alt="Company Logo"
+//         style={{ height: '120px', width: 'auto', marginBottom: '20px' }}
+//       />
+//       <Typography variant="h4" component="h1" sx={{ mb: 4 , mt:4, color:"#a97a45"}}>
+//         Welcome to the Dashboard
+//       </Typography>
+//       <CircularProgress />
+//     </Box>
+//   );
+// };
+
+// export default Home;
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import imagehero from "../assets/PLAN122.png";
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { useSelector } from "react-redux";
 
 const Home = () => {
   const navigate = useNavigate();
+  const { user: currentUser } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/admin");
-    }, 3000); // Redirection après 6 secondes
+      if (currentUser && currentUser.roles.includes("ROLE_ADMIN")) {
+        navigate("/admin");
+      } else {
+        navigate("/login");
+      }
+    }, 3000); // Redirection après 3 secondes
 
-    return () => clearTimeout(timer); // Nettoyer le timer si le composant est démonté avant la fin du délai
-  }, [navigate]);
+    return () => clearTimeout(timer);
+  }, [navigate, currentUser]);
 
   return (
     <Box

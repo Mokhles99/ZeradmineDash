@@ -39,6 +39,7 @@ const Carttwo = require('../models/carttwo.model');
 // };
 
 const mongoose = require('mongoose');
+const transporter = require('../config/mailer.config');
 
 // exports.addToCarttwo = async (req, res) => {
 //   const { cartId } = req.params; // Récupération de cartId depuis les paramètres de route
@@ -193,6 +194,22 @@ exports.updateCartWithUserInfo = async (req, res) => {
     if (!updatedCart) {
       return res.status(404).json({ message: "Cart not found" });
     }
+
+    const mailOptions = {
+      from: 'contactszq@gmail.com',
+      to: userInfo.email,  
+      subject: 'Confirmation de demande de devis',
+      text: `Bonjour Mr/Mme Votre demande de devis a été éffectuer avec succès. Nous allons vous contacter prochainement , Merci pour votre confiance.\n\nCordialement,\n SZQ Equipe`
+    };
+
+    // Envoyez l'email de confirmation
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Erreur lors de l'envoi de l'email de confirmation:", error);
+      } else {
+        console.log('Email de confirmation envoyé: ' + info.response);
+      }
+    });
     res.status(200).json(updatedCart);
   } catch (error) {
     console.error("Error in updateCartWithUserInfo:", error);
