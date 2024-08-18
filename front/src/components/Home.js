@@ -150,7 +150,7 @@ const Home = () => {
         style={{ height: '120px', width: 'auto', marginBottom: '20px' }}
       />
       <Typography variant="h4" component="h1" sx={{ mb: 4 , mt:4, color:"#a97a45"}}>
-        Welcome to the Dashboard
+        Welcome to the Dashboard .
       </Typography>
       <CircularProgress />
     </Box>
